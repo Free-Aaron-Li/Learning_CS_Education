@@ -61,7 +61,9 @@ drwxr-xr-x  2 aaron aaron  4096 12月 7日 19:37  MATLAB/
 
 `cat`(prints the content of a file)
 
-shell的流概念：每个程序都有两个主要的流：`输入流`和`输出流`，shell提供重定向二者流的方式以改变程序的输入/输出方向。最简单的方式是使用尖括号符号（‘< >’）。“<”表示将这个程序的**输入**重定向为指定文件的内容，“>”表示将前面程序的**输出**重定向到指定文件中。
+shell的流概念：每个程序都有两个主要的流：`输入流`和`输出流`
+，shell提供重定向二者流的方式以改变程序的输入/输出方向。最简单的方式是使用尖括号符号（‘< >’）。“<”表示将这个程序的**输入**
+重定向为指定文件的内容，“>”表示将前面程序的**输出**重定向到指定文件中。
 
 存在一种双向箭头（“>>”），它表示追加而不是覆盖。
 
@@ -232,7 +234,8 @@ aaron@aaron-PC /s/c/p/BAT1> cat /sys/class/power_supply/BAT1/capacity
 57
 ````
 
-通过阅读Linux内核文档[sysfs-interface](https://www.kernel.org/doc/Documentation/hwmon/sysfs-interface)可以发现，`/sys/class/hwmon/`存放CPU状态信息。
+通过阅读Linux内核文档[sysfs-interface](https://www.kernel.org/doc/Documentation/hwmon/sysfs-interface)
+可以发现，`/sys/class/hwmon/`存放CPU状态信息。
 
 笔者主机CPU为AMD，所以首先需要确定那个文件是用来监测CPU温度的。
 
