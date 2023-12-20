@@ -85,7 +85,7 @@ shell的核心功能：它允许你执行程序，输入并获取某种半结构
 
 笔者使用的shell：fish shell：
 
-````fish
+````bash
 aaron@aaron-PC ~> 
 ````
 
@@ -101,7 +101,7 @@ shell基于空格分割命令并进行解析。如果希望传递的参数中包
 
 笔者使用的是fish shell，
 
-```fish
+```bash
 aaron@aaron-PC ~> echo $SHELL
 /usr/bin/fish
 ```
@@ -110,7 +110,7 @@ aaron@aaron-PC ~> echo $SHELL
 
 > 题目：在`/tmp`下新建一个名为`missing`的文件夹。
 
-```fish
+```bash
 aaron@aaron-PC ~> cd /tmp/
 aaron@aaron-PC /tmp> mkdir missing
 aaron@aaron-PC /tmp> find -L /tmp -name 'missing'
@@ -121,7 +121,7 @@ aaron@aaron-PC /tmp> find -L /tmp -name 'missing'
 
 > 题目：用`man`查看程序`touch`的使用手册。
 
-```fish
+```bash
 aaron@aaron-PC ~> man touch
 ```
 
@@ -133,7 +133,7 @@ aaron@aaron-PC ~> man touch
 
 > 题目：用`touch`在`missing`文件夹中新建一个叫`semester`的文件。
 
-```fish
+```bash
 aaron@aaron-PC ~> cd /tmp/
 aaron@aaron-PC /tmp> cd missing/
 aaron@aaron-PC /t/missing> touch semester
@@ -148,7 +148,7 @@ aaron@aaron-PC /t/missing> touch semester
 > ```
 > 第一行可能有点棘手，`#`在Bash中表示注释，而`!`即使被双引号（`"`）包裹也具有特殊的含义。 单引号（`'`）则不一样，此处利用这一点解决输入问题。更多信息请参考[Bash quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)手册
 
-```fish
+```bash
 aaron@aaron-PC /t/missing> echo "#!/bin/sh" > semester 
 aaron@aaron-PC /t/missing> echo "curl --head --silent https://missing.csail.mit.edu" >>semester 
 aaron@aaron-PC /t/missing> cat semester
@@ -160,7 +160,7 @@ curl --head --silent https://missing.csail.mit.edu
 
 > 题目：尝试执行这个文件。例如，将该脚本的路径（`./semester`）输入到您的shell中并回车。如果程序无法执行，请使用`ls`命令来获取信息并理解其不能执行的原因。
 
-```fish
+```bash
 aaron@aaron-PC /t/missing> ./semester
 fish: Unknown command. './semester' exists but is not an executable file.
 aaron@aaron-PC /t/missing [126]> ls -l
@@ -182,7 +182,7 @@ aaron@aaron-PC /t/missing [126]> ls -l
 
 > 题目：使用`chmod`命令改变权限，使`./semester`能够成功执行，不要使用`sh semester`来执行该程序。您的`shell`是如何知晓这个文件需要使用`sh`来解析呢？更多信息请参考：[shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
 
-```fish
+```bash
 aaron@aaron-PC /t/missing> chmod +744 semester 
 aaron@aaron-PC /t/missing> ls -l
 总计 4
@@ -215,7 +215,7 @@ content-length: 8213
 
 > 题目：使用`|`和`>`，将`semester`文件输出的最后更改日期信息，写入主目录下的 `last-modified.txt`的文件中
 
-```fish
+```bash
 aaron@aaron-PC /t/missing> ./semester | grep --ignore-case last-modified | cut --delimiter=' ' -f2- | tee /home/aaron/last-modified.txt
 Wed, 29 Nov 2023 09:35:41 GMT
 aaron@aaron-PC /t/missing> cat /home/aaron/last-modified.txt
@@ -229,7 +229,7 @@ Wed, 29 Nov 2023 09:35:41 GMT
 
 在下面描述的目录中`capacity`文件存放着笔记本电量信息
 
-````fish
+````bash
 aaron@aaron-PC /s/c/p/BAT1> cat /sys/class/power_supply/BAT1/capacity
 57
 ````
@@ -239,7 +239,7 @@ aaron@aaron-PC /s/c/p/BAT1> cat /sys/class/power_supply/BAT1/capacity
 
 笔者主机CPU为AMD，所以首先需要确定那个文件是用来监测CPU温度的。
 
-```fish
+```bash
 aaron@aaron-PC /s/c/h/hwmon3> cd 
 aaron@aaron-PC ~> cd /sys/class/hwmon/
 aaron@aaron-PC /s/c/hwmon> tree ./
@@ -254,7 +254,7 @@ aaron@aaron-PC /s/c/hwmon> tree ./
 
 首先进入`/sys/class/hwmon`目录，在此目录下发现`hwmon2`和`hwmon3`目录下存在监测温度的文件`temp1_input`。
 
-```fish
+```bash
 aaron@aaron-PC /s/c/hwmon> cd hwmon3
 aaron@aaron-PC /s/c/h/hwmon3> ls -l
 总计 0
@@ -269,14 +269,14 @@ lrwxrwxrwx 1 root root    0 12月20日 19:16 subsystem -> ../../../../../class/h
 
 得到CPU温度：
 
-```fish
+```bash
 aaron@aaron-PC /s/c/h/hwmon3> cat temp1_input 
 46125
 ```
 
 但是其单位为`毫摄氏度`，编写脚本可得：
 
-```fish
+```bash
 aaron@aaron-PC /s/c/h/hwmon3> cat /sys/class/hwmon/hwmon3/temp1_input 
 46625
 ```
