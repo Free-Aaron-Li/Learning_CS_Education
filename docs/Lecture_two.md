@@ -9,7 +9,7 @@
 在bash下，对变量赋值可以这样：
 
 ```bash
-$ foo=bar # is you enter 'foo = bar', you get a error information
+$ foo=bar # is you enter 'foo = bar', you get an error information
 $ echo $foo
 bar
 ```
@@ -241,18 +241,18 @@ rm ~/.path
 
 > 题目：假设您有一个命令，它很少出错。因此为了在出错时能够对其进行调试，需要花费大量的时间重现错误并捕获输出。 编写一段bash脚本，运行如下的脚本直到它出错，将它的标准输出和标准错误流记录到文件，并在最后输出所有内容。 加分项：报告脚本在失败前共运行了多少次。
 >
->   ```bash
->   #!/usr/bin/env bash
->   n=$(( RANDOM % 100 ))
->   
->   if [[ n -eq 42 ]]; then
->   echo "Something went wrong"
->   &2 echo "The error was using magic numbers"
->   exit 1
->   fi
->   
->   echo "Everything went according to plan"
->   ```
+>>  ```bash
+>> #!/usr/bin/env bash
+>>   n=$(( RANDOM % 100 ))
+>> 
+>>   if [[ n -eq 42 ]]; then
+>>   echo "Something went wrong"
+>>   &2 echo "The error was using magic numbers"
+>>   exit 1
+>>   fi
+>>   
+>>   echo "Everything went according to plan"
+>>  ```
 
 检测该程序出错的程序test.sh:
 
