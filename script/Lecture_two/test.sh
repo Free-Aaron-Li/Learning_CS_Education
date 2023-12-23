@@ -18,13 +18,12 @@ command_to_run="./target.sh"
 chmod +744 $command_to_run
 
 # 运行脚本并捕获输出
-while true
-do
-  counter=$((counter+1))
+while true; do
+  counter=$((counter + 1))
   if [[ $counter -eq 1 ]]; then
-    $command_to_run > "$OUTPUT_FILE" 2>> "$ERROR_FILE"
+    $command_to_run >"$OUTPUT_FILE" 2>>"$ERROR_FILE"
   else
-    $command_to_run >> "$OUTPUT_FILE" 2>> "$ERROR_FILE"
+    $command_to_run >>"$OUTPUT_FILE" 2>>"$ERROR_FILE"
   fi
   # shellcheck disable=SC2181
   if [ $? -ne 0 ]; then # 检查命令是否失败
