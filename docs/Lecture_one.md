@@ -95,6 +95,8 @@ shell基于空格分割命令并进行解析。如果希望传递的参数中包
 
 ## 课后练习
 
+---
+
 **第一道题**
 
 > 题目：本课程需要使用类Unix shell，例如 Bash 或 ZSH。如果您在 Linux 或者 MacOS 上面完成本课程的练习，则不需要做任何特殊的操作。如果您使用的是 Windows，则您不应该使用 cmd 或是 Powershell；您可以使用Windows Subsystem for Linux或者是 Linux 虚拟机。使用`echo $SHELL`命令可以查看您的 shell 是否满足要求。如果打印结果为`/bin/bash`
@@ -106,6 +108,8 @@ aaron@aaron-PC ~> echo $SHELL
 /usr/bin/fish
 ```
 
+---
+
 **第二道题**
 
 > 题目：在`/tmp`下新建一个名为`missing`的文件夹。
@@ -116,6 +120,8 @@ aaron@aaron-PC /tmp> mkdir missing
 aaron@aaron-PC /tmp> find -L /tmp -name 'missing'
 /tmp/missing
 ```
+
+----
 
 **第三道题**
 
@@ -129,6 +135,8 @@ aaron@aaron-PC ~> man touch
 
 ![man touch](https://s3.bmp.ovh/imgs/2023/12/20/a6cd9fe240bec3a4.png)
 
+---
+
 **第四道题**
 
 > 题目：用`touch`在`missing`文件夹中新建一个叫`semester`的文件。
@@ -138,6 +146,8 @@ aaron@aaron-PC ~> cd /tmp/
 aaron@aaron-PC /tmp> cd missing/
 aaron@aaron-PC /t/missing> touch semester
 ```
+
+---
 
 **第五道题**
 
@@ -156,6 +166,8 @@ aaron@aaron-PC /t/missing> cat semester
 curl --head --silent https://missing.csail.mit.edu
 ```
 
+---
+
 **第六道题**
 
 > 题目：尝试执行这个文件。例如，将该脚本的路径（`./semester`）输入到您的shell中并回车。如果程序无法执行，请使用`ls`命令来获取信息并理解其不能执行的原因。
@@ -170,6 +182,8 @@ aaron@aaron-PC /t/missing [126]> ls -l
 
 由于`semester`程序不具备可执行权限，无法执行。
 
+---
+
 **第七道题**
 
 > 题目：查看`chmod`的手册（例如，使用`man chmod`命令）
@@ -177,6 +191,8 @@ aaron@aaron-PC /t/missing [126]> ls -l
 截图：
 
 ![man chmod](https://s3.bmp.ovh/imgs/2023/12/20/a6cd9fe240bec3a4.png)
+
+---
 
 **第八道题**
 
@@ -211,6 +227,8 @@ x-fastly-request-id: 96720c0dfe4e373311a9464c0e36931606e723eb
 content-length: 8213
 ```
 
+----
+
 **第九道题**
 
 > 题目：使用`|`和`>`，将`semester`文件输出的最后更改日期信息，写入主目录下的 `last-modified.txt`的文件中
@@ -221,6 +239,8 @@ Wed, 29 Nov 2023 09:35:41 GMT
 aaron@aaron-PC /t/missing> cat /home/aaron/last-modified.txt
 Wed, 29 Nov 2023 09:35:41 GMT
 ```
+
+---
 
 **地十道题**
 
