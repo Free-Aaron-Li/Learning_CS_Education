@@ -3,3 +3,7 @@
 *.iml
 out
 gen
+
+### python
+
+venv/
